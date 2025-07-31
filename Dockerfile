@@ -1,5 +1,5 @@
 # Stage 1: Build the React TypeScript app
-FROM node:18-alpine AS builder
+FROM node:18 AS builder
 
 # Set working directory
 WORKDIR /app
