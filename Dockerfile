@@ -10,8 +10,8 @@ RUN npm install --loglevel=verbose
 COPY . .
 RUN npm run build
 
-# Stage 2: Serve the production build using a lightweight web server
-FROM nginx:alpine AS production
+#non-privliged container
+FROM nginxinc/nginx-unprivileged:alpine3.22-perl AS production
 
 # Remove default nginx static assets
 # RUN rm -rf /usr/share/nginx/html/*
