@@ -2,7 +2,8 @@ FROM node:18 AS builder
 
 USER node
 
-WORKDIR /app
+RUN mkdir /home/node/app
+WORKDIR /home/node/app
 
 COPY package*.json ./
 
