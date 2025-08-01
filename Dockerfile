@@ -1,6 +1,6 @@
 FROM node:18 AS builder
 
-USER node
+USER 1000
 
 RUN mkdir /home/node/app
 WORKDIR /home/node/app
