@@ -26,6 +26,6 @@ FROM nginxinc/nginx-unprivileged:alpine3.22-perl AS production
 
 COPY --from=builder /home/node/app/build /usr/share/nginx/html
 
-EXPOSE 80
+EXPOSE 8080 
 
 CMD ["nginx", "-g", "daemon off;"]
