@@ -12,7 +12,7 @@ RUN npm --version
 RUN npm install --loglevel=verbose
 
 COPY . .
-#RUN npm run build
+RUN npm run build
 
 # EXPOSE 3000
 # CMD ["npm", "start"]
