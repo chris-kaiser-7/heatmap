@@ -2,6 +2,8 @@ FROM node:18 AS builder
 
 WORKDIR /app
 
+USER 1001:1001
+
 COPY package*.json ./
 
 RUN npm --version
