@@ -1,6 +1,6 @@
 FROM node:18 AS builder
 
-USER 1001:1001
+USER node
 
 WORKDIR /app
 
