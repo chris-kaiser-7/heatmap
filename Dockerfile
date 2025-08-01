@@ -5,7 +5,7 @@ USER 1000
 RUN mkdir /home/node/app
 WORKDIR /home/node/app
 
-COPY package*.json ./
+COPY --chown=node:node package*.json ./
 
 RUN npm --version
 RUN npm install --loglevel=verbose
