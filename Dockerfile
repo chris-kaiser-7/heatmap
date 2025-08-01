@@ -1,8 +1,8 @@
 FROM node:18 AS builder
 
-WORKDIR /app
-
 USER 1001:1001
+
+WORKDIR /app
 
 COPY package*.json ./
 
