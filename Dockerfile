@@ -13,6 +13,7 @@ RUN npm install --loglevel=verbose
 
 # explicitly give node user permissions
 COPY --chown=node:node . .
+RUN npm --version
 RUN npm run build
 
 #non-privliged container
