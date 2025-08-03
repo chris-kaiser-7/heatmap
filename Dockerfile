@@ -6,26 +6,21 @@ USER 1000
 RUN mkdir /home/node/app
 WORKDIR /home/node/app
 
+# explicitly give node user permissions
 COPY --chown=node:node package*.json ./
 
-RUN npm --version
 RUN npm install --loglevel=verbose
 
-COPY . .
+# explicitly give node user permissions
+COPY --chown=node:node . .
 RUN npm run build
-
-# EXPOSE 3000
-# CMD ["npm", "start"]
-
 
 #non-privliged container
 FROM nginxinc/nginx-unprivileged:alpine3.22-perl AS production
 
-# Remove default nginx static assets
-# RUN rm -rf /usr/share/nginx/html/*
-
 COPY --from=builder /home/node/app/build /usr/share/nginx/html
 
+#non-privliged nginx runs on 8080 instead of 80
 EXPOSE 8080 
 
 CMD ["nginx", "-g", "daemon off;"]
